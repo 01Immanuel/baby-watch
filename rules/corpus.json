@@ -1,0 +1,29 @@
+{
+  "note": "STARTER CORPUS. Texts are short plain-language summaries of the cited WHO guidance, not verbatim quotes. Replace each text with the verbatim passage from the official PDF before the presentation, then set verbatim to true. P01 numbers were cross-checked against secondary sources on 2026-10-28.",
+  "passages": [
+    {"id": "P01", "doc": "WHO guideline on haemoglobin cutoffs to define anaemia in individuals and populations", "year": 2024, "section": "Cutoffs for pregnant women", "verbatim": false,
+     "text": "In pregnancy, anaemia is a haemoglobin below 11.0 g/dL in the first and third trimesters and below 10.5 g/dL in the second trimester. Severity: mild is 10.0 to 10.9 g/dL (9.5 to 10.4 in the second trimester), moderate is 7.0 to 9.9 g/dL (7.0 to 9.4 in the second trimester), and severe is below 7.0 g/dL.",
+     "keywords": "haemoglobin anaemia anemia cutoff mild moderate severe trimester blood level"},
+    {"id": "P02", "doc": "WHO recommendations on antenatal care for a positive pregnancy experience", "year": 2016, "section": "Nutritional interventions: iron and folic acid", "verbatim": false,
+     "text": "Daily oral iron and folic acid, with 30 to 60 mg of elemental iron and 400 micrograms of folic acid, is recommended for pregnant women to prevent maternal anaemia, infection after birth, low birth weight and preterm birth.",
+     "keywords": "iron folic acid tablets supplement anaemia prevention treatment"},
+    {"id": "P03", "doc": "WHO recommendations on antenatal care for a positive pregnancy experience", "year": 2016, "section": "Antenatal care contact schedule", "verbatim": false,
+     "text": "A minimum of eight contacts with a health provider during pregnancy is recommended, to reduce deaths of babies and improve the woman's experience of care.",
+     "keywords": "antenatal checkup visits contacts schedule routine normal care"},
+    {"id": "P04", "doc": "Pregnancy, childbirth, postpartum and newborn care: a guide for essential practice (3rd edition)", "year": 2015, "section": "Danger signs in pregnancy", "verbatim": false,
+     "text": "Vaginal bleeding, convulsions, severe headache with blurred vision, fever with being too weak to get out of bed, severe abdominal pain, and fast or difficult breathing are danger signs in pregnancy. A woman with any of them needs urgent care at a health facility.",
+     "keywords": "danger signs bleeding convulsions headache blurred vision fever weak abdominal pain breathing urgent emergency"},
+    {"id": "P05", "doc": "WHO recommendations for prevention and treatment of pre-eclampsia and eclampsia", "year": 2011, "section": "Definition and signs", "verbatim": false,
+     "text": "High blood pressure in pregnancy is 140/90 mmHg or above, and 160/110 mmHg or above is severe. Signs of pre-eclampsia include severe headache, blurred vision, and swelling of the face and hands. Convulsions mean eclampsia, which is an emergency.",
+     "keywords": "blood pressure hypertension pre-eclampsia eclampsia headache swelling vision convulsions 140/90 160/110"},
+    {"id": "P06", "doc": "WHO recommendations on antenatal care for a positive pregnancy experience", "year": 2016, "section": "Assessing anaemia", "verbatim": false,
+     "text": "Haemoglobin should be measured during pregnancy to diagnose anaemia. Where a full blood count is not available, testing with a haemoglobinometer is recommended over the haemoglobin colour scale.",
+     "keywords": "haemoglobin test measure diagnose anaemia pale tired dizzy palpitations blood test"},
+    {"id": "P07", "doc": "Pregnancy, childbirth, postpartum and newborn care: a guide for essential practice (3rd edition)", "year": 2015, "section": "Anaemia in pregnancy", "verbatim": false,
+     "text": "Severe pallor, shortness of breath at rest, a very fast heartbeat or a haemoglobin below 7 g/dL are signs of severe anaemia and need urgent treatment at a facility. Milder anaemia is treated with iron and folic acid and followed up with a repeat haemoglobin test.",
+     "keywords": "anaemia pallor pale breathless heartbeat tired dizzy severe urgent iron treatment"},
+    {"id": "P08", "doc": "Pregnancy, childbirth, postpartum and newborn care: a guide for essential practice (3rd edition)", "year": 2015, "section": "Birth preparedness and history", "verbatim": false,
+     "text": "Ask about problems in earlier pregnancies, such as heavy bleeding after birth, pre-eclampsia, stillbirth or caesarean. Women with these histories need closer follow-up and a plan to give birth in a facility with skilled care.",
+     "keywords": "previous history earlier pregnancy complications bleeding after birth stillbirth caesarean birth plan facility"}
+  ]
+}

@@ -1,0 +1,583 @@
+{
+ "note": "Synthetic vignettes for testing only. Expected levels come from clinical reasoning, not from the rules. NOT yet clinician reviewed. Target is 40 to 60.",
+ "cases": [
+  {
+   "id": "C01",
+   "note": "healthy mid-pregnancy",
+   "expected_level": "low",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 24,
+    "hb": 11.8,
+    "bp_sys": 110,
+    "bp_dia": 70
+   }
+  },
+  {
+   "id": "C02",
+   "note": "early pregnancy tiredness, normal Hb",
+   "expected_level": "low",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 8,
+    "hb": 12.1,
+    "fatigue": true
+   }
+  },
+  {
+   "id": "C03",
+   "note": "2nd trimester boundary: 10.6 is normal at 20w",
+   "expected_level": "low",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 20,
+    "hb": 10.6
+   }
+  },
+  {
+   "id": "C04",
+   "note": "2nd trimester mild anaemia",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 20,
+    "hb": 10.2
+   }
+  },
+  {
+   "id": "C05",
+   "note": "3rd trimester mild anaemia",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 32,
+    "hb": 10.9
+   }
+  },
+  {
+   "id": "C06",
+   "note": "moderate anaemia with pallor",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 30,
+    "hb": 8.5,
+    "fatigue": true,
+    "pallor": "some"
+   }
+  },
+  {
+   "id": "C07",
+   "note": "Hb 7.2 near severe; clinician to confirm if this should be go_now",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 34,
+    "hb": 7.2,
+    "fatigue": true
+   }
+  },
+  {
+   "id": "C08",
+   "note": "severe anaemia by Hb",
+   "expected_level": "go_now",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 30,
+    "hb": 6.8
+   }
+  },
+  {
+   "id": "C09",
+   "note": "severe pallor, Hb unknown",
+   "expected_level": "go_now",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 28,
+    "pallor": "severe",
+    "fatigue": true
+   }
+  },
+  {
+   "id": "C10",
+   "note": "breathless at rest, pale",
+   "expected_level": "go_now",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 33,
+    "breathless_rest": true,
+    "pallor": "some"
+   }
+  },
+  {
+   "id": "C11",
+   "note": "tired, dizzy, racing heart, Hb unknown",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 26,
+    "fatigue": true,
+    "dizzy_faint": true,
+    "palpitations": true
+   }
+  },
+  {
+   "id": "C12",
+   "note": "tired only, no Hb",
+   "expected_level": "low",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 30,
+    "fatigue": true
+   }
+  },
+  {
+   "id": "C13",
+   "note": "vaginal bleeding at 12 weeks",
+   "expected_level": "go_now",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 12,
+    "vaginal_bleeding": true
+   }
+  },
+  {
+   "id": "C14",
+   "note": "convulsions",
+   "expected_level": "go_now",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 36,
+    "convulsions": true
+   }
+  },
+  {
+   "id": "C15",
+   "note": "headache, blurred vision, high BP",
+   "expected_level": "go_now",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 35,
+    "severe_headache": true,
+    "blurred_vision": true,
+    "bp_sys": 150,
+    "bp_dia": 100
+   }
+  },
+  {
+   "id": "C16",
+   "note": "raised BP alone",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 30,
+    "bp_sys": 145,
+    "bp_dia": 92
+   }
+  },
+  {
+   "id": "C17",
+   "note": "severe BP alone",
+   "expected_level": "go_now",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 32,
+    "bp_sys": 165,
+    "bp_dia": 105
+   }
+  },
+  {
+   "id": "C18",
+   "note": "face swelling plus raised BP",
+   "expected_level": "go_now",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 34,
+    "swelling_face_hands": true,
+    "bp_sys": 142,
+    "bp_dia": 90
+   }
+  },
+  {
+   "id": "C19",
+   "note": "face swelling, normal BP",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 33,
+    "swelling_face_hands": true,
+    "bp_sys": 118,
+    "bp_dia": 76
+   }
+  },
+  {
+   "id": "C20",
+   "note": "fever alone",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 20,
+    "fever": true
+   }
+  },
+  {
+   "id": "C21",
+   "note": "fever and too weak to get up",
+   "expected_level": "go_now",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 22,
+    "fever": true,
+    "too_weak": true
+   }
+  },
+  {
+   "id": "C22",
+   "note": "severe abdominal pain",
+   "expected_level": "go_now",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 29,
+    "severe_abdominal_pain": true
+   }
+  },
+  {
+   "id": "C23",
+   "note": "previous heavy bleeding after birth, otherwise well",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 18,
+    "hb": 11.5,
+    "previous_complications": true
+   }
+  },
+  {
+   "id": "C24",
+   "note": "blurred vision alone, normal BP",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 31,
+    "blurred_vision": true,
+    "bp_sys": 120,
+    "bp_dia": 80
+   }
+  },
+  {
+   "id": "C25",
+   "note": "severe headache alone, normal BP",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 30,
+    "severe_headache": true,
+    "bp_sys": 118,
+    "bp_dia": 76
+   }
+  },
+  {
+   "id": "C26",
+   "note": "moderate anaemia, 25 km from facility",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 27,
+    "hb": 9.0,
+    "distance_km": 25
+   }
+  },
+  {
+   "id": "C27",
+   "note": "near term, Hb 9.8, tired",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 39,
+    "hb": 9.8,
+    "fatigue": true
+   }
+  },
+  {
+   "id": "C28",
+   "note": "severe headache plus face swelling, BP cannot be measured",
+   "expected_level": "go_now",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 34,
+    "severe_headache": true,
+    "swelling_face_hands": true
+   }
+  },
+  {
+   "id": "C29",
+   "note": "face swelling alone, BP not measured",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 34,
+    "swelling_face_hands": true
+   }
+  },
+  {
+   "id": "C30",
+   "note": "earlier BP raised, current Hb normal",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 30,
+    "hb": 11.5,
+    "bp_sys": 150,
+    "bp_dia": 95,
+    "bp_age": "earlier"
+   }
+  },
+  {
+   "id": "C31",
+   "note": "earlier BP severe must not be Go now",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 32,
+    "bp_sys": 170,
+    "bp_dia": 112,
+    "bp_age": "earlier"
+   }
+  },
+  {
+   "id": "C32",
+   "note": "earlier BP normal, Hb normal",
+   "expected_level": "low",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 24,
+    "hb": 12.0,
+    "bp_sys": 110,
+    "bp_dia": 70,
+    "bp_age": "earlier"
+   }
+  },
+  {
+   "id": "C33",
+   "note": "earlier Hb moderate",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 30,
+    "hb": 9.0,
+    "hb_age": "earlier"
+   }
+  },
+  {
+   "id": "C34",
+   "note": "earlier Hb severe must not be Go now",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 30,
+    "hb": 6.5,
+    "hb_age": "earlier"
+   }
+  },
+  {
+   "id": "C35",
+   "note": "earlier Hb normal",
+   "expected_level": "low",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 30,
+    "hb": 12.0,
+    "hb_age": "earlier"
+   }
+  },
+  {
+   "id": "C36",
+   "note": "every sign true",
+   "expected_level": "go_now",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 30,
+    "fatigue": true,
+    "dizzy_faint": true,
+    "palpitations": true,
+    "breathless_rest": true,
+    "vaginal_bleeding": true,
+    "severe_headache": true,
+    "blurred_vision": true,
+    "swelling_face_hands": true,
+    "fever": true,
+    "too_weak": true,
+    "severe_abdominal_pain": true,
+    "convulsions": true,
+    "previous_complications": true,
+    "pallor": "severe"
+   }
+  },
+  {
+   "id": "C37",
+   "note": "tired with racing heart only",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 26,
+    "fatigue": true,
+    "palpitations": true
+   }
+  },
+  {
+   "id": "C38",
+   "note": "too weak to get out of bed, no fever",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 30,
+    "too_weak": true
+   }
+  },
+  {
+   "id": "C39",
+   "note": "looks a little pale but current Hb is normal",
+   "expected_level": "low",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 28,
+    "hb": 12.5,
+    "pallor": "some"
+   }
+  },
+  {
+   "id": "C40",
+   "note": "looks very pale but current Hb is normal: recheck, not emergency",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 28,
+    "hb": 12.5,
+    "pallor": "severe"
+   }
+  },
+  {
+   "id": "C41",
+   "note": "tired and dizzy but current Hb is normal",
+   "expected_level": "low",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 28,
+    "hb": 12.0,
+    "fatigue": true,
+    "dizzy_faint": true
+   }
+  },
+  {
+   "id": "C42",
+   "note": "very pale with moderate anaemia",
+   "expected_level": "go_now",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 30,
+    "hb": 8.5,
+    "pallor": "severe"
+   }
+  },
+  {
+   "id": "C43",
+   "note": "severe BP today, nothing else",
+   "expected_level": "go_now",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 33,
+    "bp_sys": 172,
+    "bp_dia": 108
+   }
+  },
+  {
+   "id": "C44",
+   "note": "weeks unknown, Hb 10.8 uses default cutoffs",
+   "expected_level": "watch",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "hb": 10.8
+   }
+  },
+  {
+   "id": "C45",
+   "note": "short of breath at rest, alone",
+   "expected_level": "go_now",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 33,
+    "breathless_rest": true
+   }
+  },
+  {
+   "id": "C46",
+   "note": "blurred vision with raised BP today, no headache",
+   "expected_level": "go_now",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 34,
+    "blurred_vision": true,
+    "bp_sys": 148,
+    "bp_dia": 96
+   }
+  },
+  {
+   "id": "C47",
+   "note": "blurred vision with face swelling, BP not measured",
+   "expected_level": "go_now",
+   "synthetic": true,
+   "clinician_reviewed": false,
+   "input": {
+    "gestation_weeks": 34,
+    "blurred_vision": true,
+    "swelling_face_hands": true
+   }
+  }
+ ]
+}

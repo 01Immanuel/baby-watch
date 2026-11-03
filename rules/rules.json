@@ -1,0 +1,616 @@
+{
+  "version": "0.2.0",
+  "note": "Rule pack for Baby Watch. Thresholds follow WHO sources listed in corpus.json. Window/far_km values are project parameters for the clinician reviewer to confirm.",
+  "far_km": 10,
+  "levels": [
+    "low",
+    "watch",
+    "go_now"
+  ],
+  "level_info": {
+    "low": {
+      "label": "Low",
+      "action": "No danger signs found.",
+      "window": "next scheduled visit"
+    },
+    "low_incomplete": {
+      "label": "Low so far",
+      "action": "No danger signs found, but there are no recent tests.",
+      "window": ""
+    },
+    "watch": {
+      "label": "Watch",
+      "action": "Get checked soon.",
+      "window": "within 2 to 3 days"
+    },
+    "go_now": {
+      "label": "Go now",
+      "action": "Go to a health facility now.",
+      "window": "today"
+    }
+  },
+  "hb_cutoffs": {
+    "severe_below": 7.0,
+    "by_trimester": {
+      "1": {
+        "any_below": 11.0,
+        "moderate_below": 10.0
+      },
+      "2": {
+        "any_below": 10.5,
+        "moderate_below": 9.5
+      },
+      "3": {
+        "any_below": 11.0,
+        "moderate_below": 10.0
+      },
+      "default": {
+        "any_below": 11.0,
+        "moderate_below": 10.0
+      }
+    }
+  },
+  "bp_cutoffs": {
+    "raised_sys": 140,
+    "raised_dia": 90,
+    "severe_sys": 160,
+    "severe_dia": 110
+  },
+  "default_passages": [
+    "P03"
+  ],
+  "default_why": "No danger signs were found in the answers given.",
+  "rules": [
+    {
+      "id": "G01",
+      "level": "go_now",
+      "when": {
+        "f": "convulsions",
+        "eq": true
+      },
+      "why": "Fits (convulsions) in pregnancy are an emergency.",
+      "passages": [
+        "P04",
+        "P05"
+      ],
+      "short": "Fits (convulsions)"
+    },
+    {
+      "id": "G02",
+      "level": "go_now",
+      "when": {
+        "f": "vaginal_bleeding",
+        "eq": true
+      },
+      "why": "Bleeding from the vagina during pregnancy is a danger sign.",
+      "passages": [
+        "P04"
+      ],
+      "short": "Vaginal bleeding"
+    },
+    {
+      "id": "G03",
+      "level": "go_now",
+      "when": {
+        "all": [
+          {
+            "f": "severe_headache",
+            "eq": true
+          },
+          {
+            "f": "blurred_vision",
+            "eq": true
+          }
+        ]
+      },
+      "why": "Severe headache with blurred vision can be a sign of dangerously high blood pressure (pre-eclampsia).",
+      "passages": [
+        "P04",
+        "P05"
+      ],
+      "short": "Headache and blurred vision"
+    },
+    {
+      "id": "G04",
+      "level": "go_now",
+      "when": {
+        "f": "bp_level",
+        "eq": "severe"
+      },
+      "why": "Blood pressure is very high (160 or more on top, or 110 or more at the bottom).",
+      "passages": [
+        "P05"
+      ],
+      "short": "Very high blood pressure"
+    },
+    {
+      "id": "G05",
+      "level": "go_now",
+      "when": {
+        "f": "anaemia_grade",
+        "eq": "severe"
+      },
+      "why": "The blood level (haemoglobin) is below 7, which is severe anaemia.",
+      "passages": [
+        "P01",
+        "P07"
+      ],
+      "short": "Haemoglobin below 7"
+    },
+    {
+      "id": "G06",
+      "level": "go_now",
+      "when": {
+        "f": "breathless_rest",
+        "eq": true
+      },
+      "why": "Being short of breath even when resting can be a sign of severe anaemia or another serious problem.",
+      "passages": [
+        "P04",
+        "P07"
+      ],
+      "short": "Short of breath at rest"
+    },
+    {
+      "id": "G07",
+      "level": "go_now",
+      "when": {
+        "all": [
+          {
+            "f": "fever",
+            "eq": true
+          },
+          {
+            "f": "too_weak",
+            "eq": true
+          }
+        ]
+      },
+      "why": "Fever together with being too weak to get out of bed is a danger sign.",
+      "passages": [
+        "P04"
+      ],
+      "short": "Fever and too weak"
+    },
+    {
+      "id": "G08",
+      "level": "go_now",
+      "when": {
+        "f": "severe_abdominal_pain",
+        "eq": true
+      },
+      "why": "Severe belly pain is a danger sign.",
+      "passages": [
+        "P04"
+      ],
+      "short": "Severe belly pain"
+    },
+    {
+      "id": "G09",
+      "level": "go_now",
+      "when": {
+        "all": [
+          {
+            "f": "pallor",
+            "eq": "severe"
+          },
+          {
+            "f": "anaemia_grade",
+            "in": [
+              null,
+              "mild",
+              "moderate",
+              "severe"
+            ]
+          }
+        ]
+      },
+      "why": "Very pale inside the eyelids, palms or nails can mean severe anaemia.",
+      "passages": [
+        "P07"
+      ],
+      "short": "Very pale"
+    },
+    {
+      "id": "G10",
+      "level": "go_now",
+      "when": {
+        "all": [
+          {
+            "f": "swelling_face_hands",
+            "eq": true
+          },
+          {
+            "f": "bp_level",
+            "in": [
+              "raised",
+              "severe"
+            ]
+          }
+        ]
+      },
+      "why": "Swelling of the face or hands together with raised blood pressure can be pre-eclampsia.",
+      "passages": [
+        "P05"
+      ],
+      "short": "Swelling and high blood pressure"
+    },
+    {
+      "id": "G11",
+      "level": "go_now",
+      "when": {
+        "all": [
+          {
+            "f": "severe_headache",
+            "eq": true
+          },
+          {
+            "f": "bp_level",
+            "in": [
+              "raised",
+              "severe"
+            ]
+          }
+        ]
+      },
+      "why": "Severe headache together with raised blood pressure can be pre-eclampsia.",
+      "passages": [
+        "P05"
+      ],
+      "short": "Headache and high blood pressure"
+    },
+    {
+      "id": "G12",
+      "level": "go_now",
+      "when": {
+        "all": [
+          {
+            "f": "severe_headache",
+            "eq": true
+          },
+          {
+            "f": "swelling_face_hands",
+            "eq": true
+          }
+        ]
+      },
+      "why": "Severe headache together with swelling of the face or hands can be pre-eclampsia, even when blood pressure cannot be measured.",
+      "passages": [
+        "P05"
+      ],
+      "short": "Headache and swelling"
+    },
+    {
+      "id": "W01",
+      "level": "watch",
+      "when": {
+        "f": "anaemia_grade",
+        "eq": "moderate"
+      },
+      "why": "The blood level (haemoglobin) is low enough to be moderate anaemia. It needs treatment, usually iron tablets, and a repeat blood test.",
+      "passages": [
+        "P01",
+        "P02",
+        "P07"
+      ],
+      "short": "Moderate anaemia"
+    },
+    {
+      "id": "W02",
+      "level": "watch",
+      "when": {
+        "f": "anaemia_grade",
+        "eq": "mild"
+      },
+      "why": "The blood level (haemoglobin) is a little low, which is mild anaemia. Iron and folic acid tablets are the usual first step.",
+      "passages": [
+        "P01",
+        "P02"
+      ],
+      "short": "Mild anaemia"
+    },
+    {
+      "id": "W03",
+      "level": "watch",
+      "when": {
+        "f": "bp_level",
+        "eq": "raised"
+      },
+      "why": "Blood pressure is raised (140 or more on top, or 90 or more at the bottom). It needs a check by a health worker.",
+      "passages": [
+        "P05"
+      ],
+      "short": "Raised blood pressure"
+    },
+    {
+      "id": "W04",
+      "level": "watch",
+      "when": {
+        "all": [
+          {
+            "f": "pallor",
+            "eq": "some"
+          },
+          {
+            "f": "anaemia_grade",
+            "eq": null
+          }
+        ]
+      },
+      "why": "Looking pale can be a sign of anaemia. A blood test will tell.",
+      "passages": [
+        "P06",
+        "P07"
+      ],
+      "short": "Looks pale"
+    },
+    {
+      "id": "W05",
+      "level": "watch",
+      "when": {
+        "all": [
+          {
+            "f": "fatigue",
+            "eq": true
+          },
+          {
+            "any": [
+              {
+                "f": "dizzy_faint",
+                "eq": true
+              },
+              {
+                "f": "palpitations",
+                "eq": true
+              }
+            ]
+          },
+          {
+            "f": "anaemia_grade",
+            "in": [
+              null,
+              "mild",
+              "moderate",
+              "severe"
+            ]
+          }
+        ]
+      },
+      "why": "Tiredness together with dizziness, fainting or a racing heart can be signs of anaemia.",
+      "passages": [
+        "P06",
+        "P07"
+      ],
+      "short": "Tired and dizzy"
+    },
+    {
+      "id": "W06",
+      "level": "watch",
+      "when": {
+        "f": "severe_headache",
+        "eq": true
+      },
+      "why": "A severe headache in pregnancy should be checked, because it can be a sign of high blood pressure.",
+      "passages": [
+        "P04",
+        "P05"
+      ],
+      "short": "Severe headache"
+    },
+    {
+      "id": "W07",
+      "level": "watch",
+      "when": {
+        "f": "swelling_face_hands",
+        "eq": true
+      },
+      "why": "Swelling of the face or hands should be checked, because it can be a sign of pre-eclampsia.",
+      "passages": [
+        "P05"
+      ],
+      "short": "Swelling of face or hands"
+    },
+    {
+      "id": "W08",
+      "level": "watch",
+      "when": {
+        "f": "fever",
+        "eq": true
+      },
+      "why": "Fever in pregnancy should be checked.",
+      "passages": [
+        "P04"
+      ],
+      "short": "Fever"
+    },
+    {
+      "id": "W09",
+      "level": "watch",
+      "when": {
+        "f": "previous_complications",
+        "eq": true
+      },
+      "why": "Problems in an earlier pregnancy (heavy bleeding after birth, pre-eclampsia, stillbirth, caesarean) mean you need closer follow-up and a plan to deliver in a facility.",
+      "passages": [
+        "P08",
+        "P03"
+      ],
+      "short": "Problem in an earlier pregnancy"
+    },
+    {
+      "id": "W10",
+      "level": "watch",
+      "when": {
+        "f": "blurred_vision",
+        "eq": true
+      },
+      "why": "Blurred vision in pregnancy should be checked, because it can be a sign of high blood pressure.",
+      "passages": [
+        "P05"
+      ],
+      "short": "Blurred vision"
+    },
+    {
+      "id": "W11",
+      "level": "watch",
+      "when": {
+        "f": "bp_earlier_high",
+        "eq": true
+      },
+      "short": "Earlier blood pressure was raised",
+      "why": "An earlier blood pressure reading was raised. Blood pressure changes from day to day, so get it checked again.",
+      "passages": [
+        "P05"
+      ]
+    },
+    {
+      "id": "W12",
+      "level": "watch",
+      "when": {
+        "f": "hb_earlier_low",
+        "eq": true
+      },
+      "short": "Earlier blood level was low",
+      "why": "An earlier blood test showed a low haemoglobin. That was a while ago, so get it tested again.",
+      "passages": [
+        "P01",
+        "P06"
+      ]
+    },
+    {
+      "id": "G13",
+      "level": "go_now",
+      "when": {
+        "all": [
+          {
+            "f": "blurred_vision",
+            "eq": true
+          },
+          {
+            "f": "bp_level",
+            "in": [
+              "raised",
+              "severe"
+            ]
+          }
+        ]
+      },
+      "short": "Blurred vision and high blood pressure",
+      "why": "Blurred vision together with raised blood pressure can be pre-eclampsia.",
+      "passages": [
+        "P05"
+      ]
+    },
+    {
+      "id": "G14",
+      "level": "go_now",
+      "when": {
+        "all": [
+          {
+            "f": "blurred_vision",
+            "eq": true
+          },
+          {
+            "f": "swelling_face_hands",
+            "eq": true
+          }
+        ]
+      },
+      "short": "Blurred vision and swelling",
+      "why": "Blurred vision together with swelling of the face or hands can be pre-eclampsia, even when blood pressure cannot be measured.",
+      "passages": [
+        "P05"
+      ]
+    },
+    {
+      "id": "W13",
+      "level": "watch",
+      "when": {
+        "f": "too_weak",
+        "eq": true
+      },
+      "short": "Too weak to get up",
+      "why": "Being too weak to get out of bed should be checked soon, because it can be a sign of anaemia or infection.",
+      "passages": [
+        "P04",
+        "P07"
+      ]
+    },
+    {
+      "id": "W14",
+      "level": "watch",
+      "when": {
+        "all": [
+          {
+            "f": "pallor",
+            "eq": "severe"
+          },
+          {
+            "f": "anaemia_grade",
+            "eq": "none"
+          }
+        ]
+      },
+      "short": "Very pale, but blood test normal",
+      "why": "You look very pale but your recent blood test was normal. Get checked again to be sure.",
+      "passages": [
+        "P06",
+        "P07"
+      ]
+    }
+  ],
+  "flags": [
+    {
+      "id": "F01",
+      "kind": "ask",
+      "ask": "Haemoglobin (blood) test",
+      "when": {
+        "f": "hb_measured",
+        "eq": false
+      },
+      "only_levels": [
+        "low",
+        "watch"
+      ],
+      "text": "No recent blood level (haemoglobin). Ask for a haemoglobin test.",
+      "passages": [
+        "P06"
+      ]
+    },
+    {
+      "id": "F03",
+      "kind": "ask",
+      "ask": "Blood pressure check",
+      "when": {
+        "f": "bp_measured",
+        "eq": false
+      },
+      "only_levels": [
+        "low",
+        "watch"
+      ],
+      "text": "No blood pressure from today. Ask for a blood pressure check at a clinic or pharmacy.",
+      "passages": [
+        "P05"
+      ]
+    },
+    {
+      "id": "F02",
+      "kind": "note",
+      "when": {
+        "f": "far_from_facility",
+        "eq": true
+      },
+      "only_levels": [
+        "watch",
+        "go_now"
+      ],
+      "text": "The health facility is far away. Arrange transport now and leave early.",
+      "passages": []
+    }
+  ],
+  "freshness": {
+    "hb_recent_weeks": 4,
+    "note": "Hb counts as current if taken in the last hb_recent_weeks weeks. BP counts as current only if taken today. Older readings can raise a result to Watch but never to Go now and never reassure. Windows are project parameters for the clinician reviewer."
+  }
+}
